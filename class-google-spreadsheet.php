@@ -66,10 +66,17 @@ if ( ! class_exists( 'Cgs_Google_Spreadsheet' ) ) {
 			$client_data='';
 			$client_data = Cgs_Google_Spreadsheet::get_api_key();
 			$cf7_google_url  = '';
-			$cf7_google_url .= 'https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=offline&';
+			/*$cf7_google_url .= 'https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=offline&';
 			$cf7_google_url .= 'client_id='.$client_data['clientid'];
 			$cf7_google_url .= '&redirect_uri='.Cgs_Google_Spreadsheet::redirect;
-			$cf7_google_url .= '&state&scope=https://spreadsheets.google.com/feeds';
+			$cf7_google_url .= '&state&scope=https://spreadsheets.google.com/feeds';*/
+
+			$cf7_google_url= add_query_arg( array(
+    						'client_id' => $client_data['clientid'],
+   							 '&redirect_uri' => Cgs_Google_Spreadsheet::redirect,
+   							 '' => '&state&scope=https://spreadsheets.google.com/feeds'
+						), 'https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=offline&' );
+
 			return $cf7_google_url;
 		}
 
