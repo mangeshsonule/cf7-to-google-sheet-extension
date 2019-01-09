@@ -48,8 +48,8 @@ if ( ! class_exists( 'Cgs_Google_Spreadsheet' ) ) {
 		* Function Description: Get the api key from database.
 		*/
 		public static function get_api_key(){
-			$clientid = get_option('clientid');
-			$clientsecret = get_option('clientsecret');
+			$clientid = get_option('cf7_to_spreadsheet_clientid');
+			$clientsecret = get_option('cf7_to_spreadsheet_clientsecret');
 
 			if(!empty($clientid) && !empty($clientsecret)){
 				$data['clientid'] = $clientid;
