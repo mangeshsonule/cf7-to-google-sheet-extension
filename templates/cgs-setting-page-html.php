@@ -46,7 +46,7 @@
 		$google_url = Cgs_Google_Spreadsheet::google_connect_url();
 		global  $error_message_code;
 		echo $error_message_code; 
-		echo '<a id="cgs-google-connect" class="button-primary"  href="'.$google_url.'" target="_blank" > ';
+		echo '<a id="cgs-google-connect" class="button-primary"  href="'. esc_url( $google_url ) .'" target="_blank" > ';
 		if ( empty( get_option('cf7_to_spreadsheet_clientsecret') ) || empty(get_option('cf7_to_spreadsheet_clientid'))) {
 			_e( 'Connect with Google Spreadsheet','cf-7-to-spreadsheet' );
 		} else { 
@@ -61,7 +61,7 @@
 			<table class="form-table">
 				<tr valign="top">
 					<th scope="row"> <?php _e( 'Google Access Code','cf-7-to-spreadsheet' ); ?></th>
-					<td><input type="text" class="access-code-input-box" name="cf7_to_spreadsheet_google_code" required="required" autocomplete="off" placeholder="Please enter access code" /></td>
+					<td><input type="text" class="access-code-input-box" name="cf7_to_spreadsheet_google_code" required="required" autocomplete="off" placeholder="<?php echo __( 'Please enter access code'); ?>" /></td>
 				</tr>
 			</table>
 			<?php submit_button(); ?> 
